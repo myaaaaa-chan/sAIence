@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 230" width="200" height="230">
+  <!--
+    saience 縦型ロゴ（ダーク背景向け）
+    "AI" をサイズで強調、"saien"=菜園グループ、"ce" フェード
+  -->
+  <defs>
+    <linearGradient id="vd-pot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="vd-leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#BBF7D0"/>
+      <stop offset="100%" stop-color="#4ADE80"/>
+    </linearGradient>
+    <linearGradient id="vd-ai" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86EFAC"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <filter id="vd-shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#4ADE80" flood-opacity="0.25"/>
+    </filter>
+    <filter id="vd-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="vd-clip">
+      <rect x="20" y="0" width="160" height="160"/>
+    </clipPath>
+  </defs>
+
+  <!-- シンボル（中央揃え・scale 0.8） -->
+  <g clip-path="url(#vd-clip)">
+    <g transform="translate(20, 0) scale(0.8)">
+      <path d="M50 170 Q48 148 50 128 L150 128 Q152 148 150 170 Q126 175 100 175 Q74 175 50 170Z"
+            fill="url(#vd-pot)" filter="url(#vd-shadow)"/>
+      <rect x="40" y="118" width="120" height="16" rx="8" fill="#4ADE80"/>
+      <rect x="44" y="118" width="112" height="6" rx="4" fill="#BBF7D0" opacity="0.5"/>
+      <ellipse cx="100" cy="128" rx="54" ry="7" fill="#14532D" opacity="0.5"/>
+      <g stroke="#22C55E" stroke-width="1" fill="none" opacity="0.3" stroke-linecap="round">
+        <line x1="72" y1="130" x2="70" y2="168"/>
+        <line x1="100" y1="130" x2="100" y2="172"/>
+        <line x1="128" y1="130" x2="130" y2="168"/>
+      </g>
+      <path d="M100 126 Q97 106 99 82 Q100 65 100 48"
+            stroke="#4ADE80" stroke-width="3" fill="none" stroke-linecap="round" filter="url(#vd-glow)"/>
+      <path d="M99 100 Q72 88 60 60 Q58 40 80 42 Q97 44 99 100Z" fill="#86EFAC" opacity="0.65"/>
+      <path d="M101 82 Q132 70 144 44 Q146 24 124 26 Q108 28 101 82Z" fill="#86EFAC" opacity="0.65"/>
+      <path d="M99 108 Q68 96 54 66 Q52 44 74 46 Q94 48 99 108Z" fill="url(#vd-leaf)" opacity="0.92"/>
+      <path d="M101 90 Q130 76 144 48 Q146 28 124 30 Q106 32 101 90Z" fill="url(#vd-leaf)" opacity="0.92"/>
+      <path d="M99 108 Q76 90 66 68" stroke="white" stroke-width="1.2" fill="none" opacity="0.35" stroke-linecap="round"/>
+      <path d="M101 90 Q122 74 132 52" stroke="white" stroke-width="1.2" fill="none" opacity="0.35" stroke-linecap="round"/>
+      <circle cx="100" cy="48" r="14" fill="#4ADE80" opacity="0.18" filter="url(#vd-glow)"/>
+      <circle cx="100" cy="48" r="7" fill="#4ADE80" filter="url(#vd-glow)"/>
+      <circle cx="100" cy="48" r="3" fill="white"/>
+    </g>
+  </g>
+
+  <!-- 区切り線 -->
+  <line x1="40" y1="168" x2="160" y2="168" stroke="#166534" stroke-width="1"/>
+
+  <!-- ワードマーク（中央揃え）: AI を大きく、s/en を中、ce を小さくフェード -->
+  <text x="100" y="204" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        text-anchor="middle" dominant-baseline="alphabetic">
+    <tspan font-size="30" font-weight="300" fill="#BBF7D0">s</tspan>
+    <tspan font-size="44" font-weight="800" fill="url(#vd-ai)" filter="url(#vd-glow)">AI</tspan>
+    <tspan font-size="30" font-weight="300" fill="#BBF7D0">en</tspan>
+    <tspan font-size="25" font-weight="200" fill="#ECFDF5" opacity="0.3">ce</tspan>
+  </text>
+
+  <text x="100" y="221" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="9.5" font-weight="400" fill="white" text-anchor="middle"
+        letter-spacing="3" opacity="0.75">AI GARDEN ASSISTANT</text>
+</svg>

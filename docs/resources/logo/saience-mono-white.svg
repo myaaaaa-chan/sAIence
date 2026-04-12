@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 90" width="340" height="90">
+  <!--
+    saience モノクローム（ホワイト単色）
+    ダーク・カラー背景に重ねて使う / すべて白で統一
+    "AI" をサイズで強調、"saien"=菜園グループ、"ce" フェード
+  -->
+
+  <!-- シンボル（単色ホワイト・scale 0.45） -->
+  <g transform="scale(0.45)">
+    <path d="M50 170 Q48 148 50 128 L150 128 Q152 148 150 170 Q126 175 100 175 Q74 175 50 170Z"
+          fill="white" opacity="0.9"/>
+    <rect x="40" y="118" width="120" height="16" rx="8" fill="white"/>
+    <rect x="44" y="118" width="112" height="6" rx="4" fill="white" opacity="0.5"/>
+    <ellipse cx="100" cy="128" rx="54" ry="7" fill="white" opacity="0.2"/>
+    <g stroke="white" stroke-width="1.2" fill="none" opacity="0.35" stroke-linecap="round">
+      <line x1="72" y1="130" x2="70" y2="168"/>
+      <line x1="100" y1="130" x2="100" y2="172"/>
+      <line x1="128" y1="130" x2="130" y2="168"/>
+    </g>
+    <path d="M100 126 Q97 106 99 82 Q100 65 100 48"
+          stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M99 108 Q68 96 54 66 Q52 44 74 46 Q94 48 99 108Z" fill="white" opacity="0.8"/>
+    <path d="M101 90 Q130 76 144 48 Q146 28 124 30 Q106 32 101 90Z" fill="white" opacity="0.8"/>
+    <path d="M99 100 Q72 88 60 60 Q58 40 80 42 Q97 44 99 100Z" fill="white" opacity="0.55"/>
+    <path d="M101 82 Q132 70 144 44 Q146 24 124 26 Q108 28 101 82Z" fill="white" opacity="0.55"/>
+    <path d="M99 108 Q76 90 66 68" stroke="rgba(0,0,0,0.15)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <path d="M101 90 Q122 74 132 52" stroke="rgba(0,0,0,0.15)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <circle cx="100" cy="48" r="10" fill="white" opacity="0.25"/>
+    <circle cx="100" cy="48" r="6" fill="white"/>
+    <circle cx="100" cy="48" r="2.5" fill="rgba(0,0,0,0.2)"/>
+  </g>
+
+  <!-- 区切り線 -->
+  <line x1="102" y1="18" x2="102" y2="72" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+  <!-- ワードマーク: AI を大きく、s/en を中、ce を小さくフェード（すべて白） -->
+  <text font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dominant-baseline="alphabetic">
+    <tspan x="114" y="55" font-size="33" font-weight="300" fill="white">s</tspan>
+    <tspan y="56" font-size="48" font-weight="800" fill="white">AI</tspan>
+    <tspan y="55" font-size="33" font-weight="300" fill="white">en</tspan>
+    <tspan y="55" font-size="28" font-weight="200" fill="white" opacity="0.3">ce</tspan>
+  </text>
+
+  <text x="115" y="71" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="9.5" font-weight="400" fill="white" letter-spacing="3" opacity="0.65">AI GARDEN ASSISTANT</text>
+</svg>

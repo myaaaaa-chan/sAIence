@@ -1,0 +1,50 @@
+.mcp.json
+docs/plan-workers-jwt-auth.md
+docs/secrets/*
+docs/tmp
+docs/ui-mockup
+
+# Claude Code
+.agents/
+.claude/
+skills-lock.json
+
+# ai/server (Cloudflare Workers)
+ai/server/.dev.vars
+ai/server/.wrangler/
+ai/server/node_modules/
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

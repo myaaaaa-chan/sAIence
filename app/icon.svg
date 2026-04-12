@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="ml3-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ECFDF5"/>
+      <stop offset="100%" stop-color="#D1FAE5"/>
+    </linearGradient>
+    <linearGradient id="ml3-planter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="ml3-shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2.5" flood-color="#059669" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="200" height="200" rx="36" fill="url(#ml3-bg)"/>
+
+  <!-- 菜園: top area -->
+  <text x="100" y="22" text-anchor="middle" font-family="'Hiragino Sans', 'Yu Gothic', sans-serif" font-size="14" font-weight="700" fill="#059669" letter-spacing="4">菜園</text>
+  <!-- Thin separator line -->
+  <line x1="60" y1="28" x2="140" y2="28" stroke="#10B981" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Symbol group (shifted down slightly) -->
+  <g transform="translate(0,12)">
+    <!-- Planter body -->
+    <path d="M50 170 Q48 148 50 128 L150 128 Q152 148 150 170 Q126 175 100 175 Q74 175 50 170Z" fill="url(#ml3-planter)"/>
+    <!-- Planter vertical slits -->
+    <line x1="80" y1="132" x2="78" y2="168" stroke="#065F46" stroke-width="1.5" opacity="0.2"/>
+    <line x1="100" y1="132" x2="100" y2="172" stroke="#065F46" stroke-width="1.5" opacity="0.2"/>
+    <line x1="120" y1="132" x2="122" y2="168" stroke="#065F46" stroke-width="1.5" opacity="0.2"/>
+    <!-- Rim -->
+    <rect x="40" y="118" width="120" height="16" rx="8" fill="#059669"/>
+    <!-- Rim highlight -->
+    <rect x="44" y="118" width="112" height="6" rx="4" fill="#34D399" opacity="0.55"/>
+    <!-- Soil -->
+    <ellipse cx="100" cy="128" rx="54" ry="7" fill="#065F46" opacity="0.3"/>
+
+    <!-- Left back leaf -->
+    <path d="M99 100 Q72 88 60 60 Q58 40 80 42 Q97 44 99 100Z" fill="#6EE7B7" opacity="0.75"/>
+    <!-- Right back leaf -->
+    <path d="M101 82 Q132 70 144 44 Q146 24 124 26 Q108 28 101 82Z" fill="#6EE7B7" opacity="0.75"/>
+    <!-- Stem -->
+    <path d="M100 126 Q97 106 99 82 Q100 65 100 48" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Left front leaf -->
+    <path d="M99 108 Q68 96 54 66 Q52 44 74 46 Q94 48 99 108Z" fill="#34D399"/>
+    <!-- Right front leaf -->
+    <path d="M101 90 Q130 76 144 48 Q146 28 124 30 Q106 32 101 90Z" fill="#34D399"/>
+    <!-- Leaf veins -->
+    <path d="M99 108 Q76 90 66 68" fill="none" stroke="white" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+    <path d="M101 90 Q122 74 132 52" fill="none" stroke="white" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+
+    <!-- AI node outer -->
+    <circle cx="100" cy="48" r="10" fill="#059669" opacity="0.2"/>
+    <!-- AI node mid -->
+    <circle cx="100" cy="48" r="6" fill="#059669" filter="url(#ml3-shadow)"/>
+    <!-- AI node center -->
+    <circle cx="100" cy="48" r="2.5" fill="white"/>
+  </g>
+
+  <!-- Label -->
+  <text x="100" y="197" text-anchor="middle" font-family="'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="9.5" letter-spacing="1.5"><tspan font-weight="400" fill="#065F46">s</tspan><tspan font-weight="700" fill="#059669">AI</tspan><tspan font-weight="400" fill="#065F46">ence</tspan></text>
+</svg>

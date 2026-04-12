@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "garden-partner-server",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-29",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // 環境変数（シークレット以外）
+  "vars": {
+    "ENVIRONMENT": "development",
+    "OPENROUTER_MODEL": "anthropic/claude-sonnet-4.6"
+    // CORS_ORIGIN: モバイルアプリ専用のため通常は未設定のまま
+    // 設定する場合は wrangler secret put CORS_ORIGIN で登録
+  },
+
+  // 本番環境の上書き設定
+  "env": {
+    "production": {
+      "name": "garden-partner-server",
+      "vars": {
+        "ENVIRONMENT": "production",
+        "OPENROUTER_MODEL": "anthropic/claude-sonnet-4.6"
+      }
+    }
+  }
+}
