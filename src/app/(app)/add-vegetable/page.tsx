@@ -171,7 +171,7 @@ export default function AddVegetablePage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div>
+              <div className="min-w-0">
                 <label htmlFor="cultivation-method" className="mb-1 block text-sm font-semibold">
                   栽培方法
                 </label>
@@ -186,7 +186,7 @@ export default function AddVegetablePage() {
                   ))}
                 </select>
               </div>
-              <div>
+              <div className="min-w-0">
                 <label htmlFor="planted-date" className="mb-1 block text-sm font-semibold">
                   植付日<span className="text-red-500">*</span>
                 </label>
