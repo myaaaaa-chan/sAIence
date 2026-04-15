@@ -34,15 +34,15 @@ export function AdviceHistoryCard({ advice }: AdviceHistoryCardProps) {
         />
       )}
 
-      <p className="text-sm leading-relaxed whitespace-pre-wrap text-gray-800">
-        {advice.adviceText}
-      </p>
-
       {advice.userComment && (
-        <div className="mt-3 text-xs text-gray-500 bg-gray-50 rounded-md p-2">
+        <div className="mb-3 text-xs text-gray-500 bg-gray-50 rounded-md p-2">
           💬 {advice.userComment}
         </div>
       )}
+
+      <p className="text-sm leading-relaxed whitespace-pre-wrap text-gray-800">
+        {advice.adviceText}
+      </p>
     </div>
   )
 }
