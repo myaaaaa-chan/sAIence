@@ -48,7 +48,7 @@ npm test -- path/to/test.ts
 このリポジトリ自体がスタンドアロンの Next.js アプリ。既存モノレポ（`/Users/yajima/PhpstormProjects/garden-partner`）のロジックを参照・流用済み:
 
 - **API型定義** — `src/types/api.ts` に `EventType`, `Urgency`, `CultivationQuery`, `AiScheduleResponse` 等を定義済み
-- **野菜マスタ** — `src/constants/vegetables.ts` に 87品目を移植済み
+- **野菜マスタ** — `src/constants/vegetables.ts` に 79品目を移植済み
 - **日付ユーティリティ** — `src/lib/date.ts` に移植済み
 - **APIクライアント** — `src/lib/api-client.ts` に移植済み
 
