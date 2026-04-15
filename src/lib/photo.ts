@@ -1,3 +1,27 @@
+import { getSupabase } from '@/db/supabase-client'
+
+export async function uploadAdvicePhoto(vegetableId: string, base64: string): Promise<string> {
+  const supabase = getSupabase()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) throw new Error('認証が必要です')
+
+  const path = `${user.id}/${vegetableId}/${Date.now()}.jpg`
+
+  const binary = atob(base64)
+  const bytes = new Uint8Array(binary.length)
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i)
+  }
+
+  const { error } = await supabase.storage
+    .from('photos')
+    .upload(path, bytes, { contentType: 'image/jpeg' })
+  if (error) throw new Error(`写真のアップロードに失敗しました: ${error.message}`)
+
+  const { data } = supabase.storage.from('photos').getPublicUrl(path)
+  return data.publicUrl
+}
+
 export async function resizeAndEncodeBase64(file: File): Promise<string> {
   const MAX_SIZE = 1280
   const QUALITY = 0.8

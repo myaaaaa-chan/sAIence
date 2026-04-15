@@ -5,7 +5,7 @@ import { Camera, LoaderCircle } from 'lucide-react'
 import { Dialog } from '@/components/ui/Dialog'
 import { UrgencyBadge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
-import { resizeAndEncodeBase64 } from '@/lib/photo'
+import { resizeAndEncodeBase64, uploadAdvicePhoto } from '@/lib/photo'
 import { requestPhotoAdvice } from '@/features/photo-advice/api/advice-api'
 import type { Advice, Urgency } from '@/types'
 import type { PhotoAdviceResponse } from '@/types/api'
@@ -39,6 +39,7 @@ export function PhotoAdviceDialog({
   const [comment, setComment] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [result, setResult] = useState<PhotoAdviceResponse | null>(null)
+  const [isSaving, setIsSaving] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const reset = useCallback(() => {
@@ -48,6 +49,7 @@ export function PhotoAdviceDialog({
     setComment('')
     setError(null)
     setResult(null)
+    setIsSaving(false)
   }, [])
 
   const handleClose = useCallback(() => {
@@ -89,16 +91,28 @@ export function PhotoAdviceDialog({
     }
   }, [vegetableName, imageBase64, comment])
 
-  const handleSave = useCallback(() => {
+  const handleSave = useCallback(async () => {
     if (!result) return
-    onSave({
-      vegetableId,
-      adviceText: result.advice,
-      urgency: result.urgency,
-      userComment: comment || undefined,
-    })
-    handleClose()
-  }, [result, vegetableId, comment, onSave, handleClose])
+    setIsSaving(true)
+    setError(null)
+    try {
+      let photoPath: string | undefined
+      if (imageBase64) {
+        photoPath = await uploadAdvicePhoto(vegetableId, imageBase64)
+      }
+      onSave({
+        vegetableId,
+        adviceText: result.advice,
+        urgency: result.urgency,
+        userComment: comment || undefined,
+        photoPath,
+      })
+      handleClose()
+    } catch {
+      setError('写真の保存に失敗しました。もう一度お試しください。')
+      setIsSaving(false)
+    }
+  }, [result, vegetableId, imageBase64, comment, onSave, handleClose])
 
   return (
     <Dialog open={open} onClose={handleClose} title="写真AIアドバイス">
@@ -202,11 +216,12 @@ export function PhotoAdviceDialog({
           )}
 
           <div className="flex gap-2">
-            <Button variant="ghost" className="flex-1" onClick={handleClose}>
+            <Button variant="ghost" className="flex-1" onClick={handleClose} disabled={isSaving}>
               破棄
             </Button>
-            <Button variant="primary" className="flex-1" onClick={handleSave}>
-              保存する
+            <Button variant="primary" className="flex-1" onClick={handleSave} disabled={isSaving}>
+              {isSaving ? <LoaderCircle size={16} className="animate-spin" /> : null}
+              {isSaving ? '保存中…' : '保存する'}
             </Button>
           </div>
         </div>
