@@ -195,7 +195,7 @@ export default function AddVegetablePage() {
                 type="date"
                 value={plantedDate}
                 onChange={(e) => setPlantedDate(e.target.value)}
-                className={selectClassName}
+                className={`${selectClassName} appearance-none max-w-full`}
               />
             </div>
 
