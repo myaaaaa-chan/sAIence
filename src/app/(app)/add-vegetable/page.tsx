@@ -170,34 +170,33 @@ export default function AddVegetablePage() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="min-w-0">
-                <label htmlFor="cultivation-method" className="mb-1 block text-sm font-semibold">
-                  栽培方法
-                </label>
-                <select
-                  id="cultivation-method"
-                  value={cultivationMethod}
-                  onChange={(e) => setCultivationMethod(e.target.value)}
-                  className={selectClassName}
-                >
-                  {CULTIVATION_METHODS.map((m) => (
-                    <option key={m} value={m}>{m}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="min-w-0">
-                <label htmlFor="planted-date" className="mb-1 block text-sm font-semibold">
-                  植付日<span className="text-red-500">*</span>
-                </label>
-                <input
-                  id="planted-date"
-                  type="date"
-                  value={plantedDate}
-                  onChange={(e) => setPlantedDate(e.target.value)}
-                  className={selectClassName}
-                />
-              </div>
+            <div>
+              <label htmlFor="cultivation-method" className="mb-1 block text-sm font-semibold">
+                栽培方法
+              </label>
+              <select
+                id="cultivation-method"
+                value={cultivationMethod}
+                onChange={(e) => setCultivationMethod(e.target.value)}
+                className={selectClassName}
+              >
+                {CULTIVATION_METHODS.map((m) => (
+                  <option key={m} value={m}>{m}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="planted-date" className="mb-1 block text-sm font-semibold">
+                植付日<span className="text-red-500">*</span>
+              </label>
+              <input
+                id="planted-date"
+                type="date"
+                value={plantedDate}
+                onChange={(e) => setPlantedDate(e.target.value)}
+                className={selectClassName}
+              />
             </div>
 
             <div>
