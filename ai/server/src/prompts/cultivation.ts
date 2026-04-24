@@ -1,4 +1,4 @@
-import type { CultivationQuery } from '@saience/shared';
+import type { CultivationQuery } from '../types/shared';
 
 function escapeXml(str: string): string {
   return str
@@ -34,7 +34,7 @@ export function buildCultivationPrompt(query: CultivationQuery): string {
     {
       "type": "fertilizing" | "pinching" | "harvesting" | "watering" | "other",
       "title": "作業名",
-      "description": "詳細説明",
+      "description": "作業の具体的な手順・量・目安を1〜2文で記載（例：追肥なら肥料の種類と1株あたりの量、摘芯なら対象の芽の位置、収穫なら見極めポイント）",
       "scheduledDate": "YYYY-MM-DD"
     }
   ],
@@ -46,5 +46,6 @@ export function buildCultivationPrompt(query: CultivationQuery): string {
 - scheduledDate は植えた日以降の日付にしてください
 - type は "fertilizing"（追肥）, "pinching"（摘芯・剪定）, "harvesting"（収穫）, "watering"（水やり）, "other"（その他）のいずれかです
 - 一般的な家庭菜園での栽培スケジュールを提案してください
+- description には作業の具体的な手順・量・目安を1〜2文で記載してください
 - JSON のみを返してください`;
 }

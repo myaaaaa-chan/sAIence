@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import type { AiScheduleResponse } from '@saience/shared';
+import type { AiScheduleResponse } from '../types/shared';
 import type { Env } from '../types/env';
 import { cultivationQuerySchema } from '../middleware/validation';
 import { buildCultivationPrompt } from '../prompts/cultivation';

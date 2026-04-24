@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import type { PhotoAdviceResponse } from '@saience/shared';
+import type { PhotoAdviceResponse } from '../types/shared';
 
 vi.mock('../services/openrouter', () => ({
   callOpenRouterMultimodal: vi.fn(),

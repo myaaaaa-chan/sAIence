@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import type { PhotoAdviceResponse } from '@saience/shared';
+import type { PhotoAdviceResponse } from '../types/shared';
 import type { Env } from '../types/env';
 import { photoAdviceRequestSchema } from '../middleware/validation';
 import { buildPhotoAdvicePrompt } from '../prompts/photo-advice';

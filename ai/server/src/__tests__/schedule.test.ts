@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import type { AiScheduleResponse } from '@saience/shared';
+import type { AiScheduleResponse } from '../types/shared';
 
 vi.mock('../services/openrouter', () => ({
   callOpenRouterText: vi.fn(),
