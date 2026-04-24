@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ProgressBarProvider } from '@/components/providers/ProgressBarProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="bg-gray-50 min-h-screen">
-        {children}
+        <ProgressBarProvider>{children}</ProgressBarProvider>
       </body>
     </html>
   )
