@@ -17,7 +17,7 @@ export function VegetableCard({ vegetable, nextEvent, harvestDate, onClick }: Ve
 
   return (
     <Card
-      className={`cursor-pointer transition-shadow hover:shadow-md !p-4 ${isCompleted ? 'opacity-60' : ''}`}
+      className={`cursor-pointer transition-shadow hover:shadow-md ${isCompleted ? 'opacity-60' : ''}`}
       onClick={onClick}
     >
       <div className="flex items-center justify-between mb-2">
