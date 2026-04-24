@@ -50,27 +50,32 @@ export function EventTimeline({ events, onToggleComplete, onDelete }: EventTimel
             {dateEvents.map((event) => (
               <div
                 key={event.id}
-                className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-gray-50"
+                className="flex items-start gap-3 py-2 px-3 rounded-lg hover:bg-gray-50"
               >
                 <input
                   type="checkbox"
                   checked={event.isCompleted}
                   onChange={() => onToggleComplete(event.id)}
-                  className="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
+                  className="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer mt-0.5"
                 />
-                <span className="w-14 flex-shrink-0 flex justify-center">
+                <span className="w-14 flex-shrink-0 flex justify-center mt-0.5">
                   <EventTypeBadge type={event.type} />
                 </span>
-                <span
-                  className={`flex-1 text-sm ${
-                    event.isCompleted ? 'line-through text-gray-400' : 'text-gray-900'
-                  }`}
-                >
-                  {event.title}
-                </span>
+                <div className="flex-1 min-w-0">
+                  <span
+                    className={`text-sm ${
+                      event.isCompleted ? 'line-through text-gray-400' : 'text-gray-900'
+                    }`}
+                  >
+                    {event.title}
+                  </span>
+                  {event.description && (
+                    <p className="text-xs text-gray-500 mt-0.5">{event.description}</p>
+                  )}
+                </div>
                 <button
                   onClick={() => onDelete(event.id)}
-                  className="p-1 text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                  className="p-1 text-gray-400 hover:text-red-500 transition-colors cursor-pointer mt-0.5"
                   aria-label="削除"
                 >
                   <Trash2 size={16} />
