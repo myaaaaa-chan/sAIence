@@ -16,7 +16,7 @@ app.use('*', cors({
     return origins.includes(origin) ? origin : '';
   },
   allowMethods: ['GET', 'POST', 'OPTIONS'],
-  allowHeaders: ['Content-Type'],
+  allowHeaders: ['Content-Type', 'Authorization'],
 }));
 
 // Global error handler — never leak internal details

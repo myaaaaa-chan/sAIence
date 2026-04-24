@@ -7,10 +7,9 @@
 
   // 環境変数（シークレット以外）
   "vars": {
+    "CORS_ORIGIN": "http://localhost:3000,https://s-a-ience.vercel.app",
     "ENVIRONMENT": "development",
     "OPENROUTER_MODEL": "anthropic/claude-sonnet-4.6"
-    // CORS_ORIGIN: モバイルアプリ専用のため通常は未設定のまま
-    // 設定する場合は wrangler secret put CORS_ORIGIN で登録
   },
 
   // 本番環境の上書き設定
@@ -18,6 +17,7 @@
     "production": {
       "name": "garden-partner-server",
       "vars": {
+        "CORS_ORIGIN": "https://s-a-ience.vercel.app",
         "ENVIRONMENT": "production",
         "OPENROUTER_MODEL": "anthropic/claude-sonnet-4.6"
       }
