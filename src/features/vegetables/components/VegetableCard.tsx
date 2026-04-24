@@ -17,31 +17,31 @@ export function VegetableCard({ vegetable, nextEvent, harvestDate, onClick }: Ve
 
   return (
     <Card
-      className={`cursor-pointer transition-shadow hover:shadow-md ${isCompleted ? 'opacity-60' : ''}`}
+      className={`cursor-pointer transition-shadow hover:shadow-md !p-4 ${isCompleted ? 'opacity-60' : ''}`}
       onClick={onClick}
     >
-      <div className="flex items-start justify-between mb-2">
-        <div>
-          <h3 className="text-lg font-semibold">{vegetable.name}</h3>
-          <p className="text-sm text-gray-500">{vegetable.category}</p>
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-baseline gap-2 min-w-0">
+          <h3 className="text-base font-semibold truncate">{vegetable.name}</h3>
+          <span className="text-xs text-gray-400 shrink-0">{vegetable.category}</span>
         </div>
         {isCompleted && (
-          <span className="inline-block text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-green-100 text-green-800">
+          <span className="ml-2 shrink-0 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-800">
             収穫完了
           </span>
         )}
       </div>
 
-      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-gray-600">
-        <span>植付日: {format(parseISO(vegetable.plantedDate), 'yyyy年M月d日')}</span>
+      <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-gray-500">
+        <span>植付: {format(parseISO(vegetable.plantedDate), 'M月d日')}</span>
         {harvestDate && !isCompleted && (
-          <span>収穫予定: {format(parseISO(harvestDate), 'yyyy年M月d日')}</span>
+          <span>収穫: {format(parseISO(harvestDate), 'M月d日')}</span>
         )}
       </div>
 
       {nextEvent && !isCompleted && (
-        <div className="flex items-center gap-2 mt-3 text-sm text-gray-600">
-          <span>次のイベント:</span>
+        <div className="flex items-center gap-1.5 mt-2 text-xs text-gray-500">
+          <span>次:</span>
           <EventTypeBadge type={nextEvent.type} />
           <span>{format(parseISO(nextEvent.date), 'M月d日')}</span>
         </div>

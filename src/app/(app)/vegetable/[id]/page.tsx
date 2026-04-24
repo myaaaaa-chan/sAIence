@@ -117,12 +117,14 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
           </div>
         </div>
 
-        <div className="text-[13px] text-gray-500 space-y-1">
-          <p>カテゴリ: {vegetable.category}</p>
-          <p>植付日: {format(parseISO(vegetable.plantedDate), 'yyyy年M月d日')}</p>
-          {vegetable.brand && <p>品種: {vegetable.brand}</p>}
-          {vegetable.region && <p>地域: {vegetable.region}</p>}
-          {vegetable.memo && <p>メモ: {vegetable.memo}</p>}
+        <div className="text-[13px] text-gray-500 mt-2">
+          <div className="flex flex-wrap gap-x-4 gap-y-0.5">
+            <span>カテゴリ: {vegetable.category}</span>
+            <span>植付: {format(parseISO(vegetable.plantedDate), 'M月d日')}</span>
+            {vegetable.brand && <span>品種: {vegetable.brand}</span>}
+            {vegetable.region && <span>地域: {vegetable.region}</span>}
+          </div>
+          {vegetable.memo && <p className="mt-1">{vegetable.memo}</p>}
         </div>
       </Card>
 
