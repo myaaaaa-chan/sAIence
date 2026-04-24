@@ -10,9 +10,23 @@ import { VegetableCard } from '@/features/vegetables/components/VegetableCard'
 import type { Vegetable } from '@/types'
 
 type Tab = 'active' | 'completed'
+type SortKey = 'name' | 'createdAt' | 'plantedDate' | 'harvestDate' | 'nextEvent'
+
+const SORT_LABELS: Record<SortKey, string> = {
+  name: '名前順',
+  createdAt: '登録日順',
+  plantedDate: '植付日順',
+  harvestDate: '収穫予定日順',
+  nextEvent: '次のイベント順',
+}
 
 export default function GardenPage() {
   const [activeTab, setActiveTab] = useState<Tab>('active')
+  const [sortKey, setSortKey] = useState<SortKey>(() => {
+    if (typeof window === 'undefined') return 'createdAt'
+    const saved = localStorage.getItem('garden:sortKey')
+    return (saved as SortKey | null) ?? 'createdAt'
+  })
   const router = useRouter()
 
   const vegetables = useVegetableStore((s) => s.vegetables)
@@ -27,12 +41,10 @@ export default function GardenPage() {
     loadEvents()
   }, [loadVegetables, loadEvents])
 
-  const filtered = vegetables.filter((v) =>
-    activeTab === 'active' ? v.status === 'active' : v.status === 'completed',
-  )
-
-  const activeCount = vegetables.filter((v) => v.status === 'active').length
-  const completedCount = vegetables.filter((v) => v.status === 'completed').length
+  const getHarvestDate = (vegetableId: string): string | undefined =>
+    getEventsByVegetableId(vegetableId)
+      .filter((e) => e.type === 'harvesting')
+      .sort((a, b) => a.date.localeCompare(b.date))[0]?.date
 
   const getNextEvent = (vegetableId: string) => {
     const vegEvents = getEventsByVegetableId(vegetableId)
@@ -42,12 +54,44 @@ export default function GardenPage() {
       .sort((a, b) => a.date.localeCompare(b.date))[0]
   }
 
+  const sortVegetables = (list: Vegetable[]): Vegetable[] => {
+    return [...list].sort((a, b) => {
+      switch (sortKey) {
+        case 'name':
+          return a.name.localeCompare(b.name, 'ja')
+        case 'createdAt':
+          return a.createdAt.localeCompare(b.createdAt)
+        case 'plantedDate':
+          return a.plantedDate.localeCompare(b.plantedDate)
+        case 'harvestDate': {
+          const ha = getHarvestDate(a.id) ?? '￿'
+          const hb = getHarvestDate(b.id) ?? '￿'
+          return ha.localeCompare(hb)
+        }
+        case 'nextEvent': {
+          const na = getNextEvent(a.id)?.date ?? '￿'
+          const nb = getNextEvent(b.id)?.date ?? '￿'
+          return na.localeCompare(nb)
+        }
+      }
+    })
+  }
+
+  const filtered = sortVegetables(
+    vegetables.filter((v) =>
+      activeTab === 'active' ? v.status === 'active' : v.status === 'completed',
+    ),
+  )
+
+  const activeCount = vegetables.filter((v) => v.status === 'active').length
+  const completedCount = vegetables.filter((v) => v.status === 'completed').length
+
   return (
     <div style={{ maxWidth: 900, margin: '0 auto' }}>
       <h1 className="text-[22px] font-extrabold mb-5">マイ菜園</h1>
 
-      {/* タブ切り替え */}
-      <div className="flex gap-2 mb-6">
+      {/* タブ切り替え + 並び順 */}
+      <div className="flex items-center gap-2 mb-6">
         <button
           onClick={() => setActiveTab('active')}
           className={`px-4 py-1 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
@@ -86,6 +130,19 @@ export default function GardenPage() {
             {completedCount}
           </span>
         </button>
+        <select
+          value={sortKey}
+          onChange={(e) => {
+            const key = e.target.value as SortKey
+            setSortKey(key)
+            localStorage.setItem('garden:sortKey', key)
+          }}
+          className="ml-auto text-sm border border-gray-200 rounded-lg px-2.5 py-1 text-gray-600 bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
+        >
+          {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
+            <option key={key} value={key}>{SORT_LABELS[key]}</option>
+          ))}
+        </select>
       </div>
 
       {/* ローディング */}
@@ -108,6 +165,7 @@ export default function GardenPage() {
               key={v.id}
               vegetable={v}
               nextEvent={getNextEvent(v.id)}
+              harvestDate={getHarvestDate(v.id)}
               onClick={() => router.push(`/vegetable/${v.id}`)}
             />
           ))}

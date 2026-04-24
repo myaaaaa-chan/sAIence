@@ -8,10 +8,11 @@ import type { Vegetable, CultivationEvent } from '@/types'
 interface VegetableCardProps {
   vegetable: Vegetable
   nextEvent?: CultivationEvent
+  harvestDate?: string
   onClick: () => void
 }
 
-export function VegetableCard({ vegetable, nextEvent, onClick }: VegetableCardProps) {
+export function VegetableCard({ vegetable, nextEvent, harvestDate, onClick }: VegetableCardProps) {
   const isCompleted = vegetable.status === 'completed'
 
   return (
@@ -31,9 +32,12 @@ export function VegetableCard({ vegetable, nextEvent, onClick }: VegetableCardPr
         )}
       </div>
 
-      <p className="text-sm text-gray-600 mt-2">
-        植付日: {format(parseISO(vegetable.plantedDate), 'yyyy年M月d日')}
-      </p>
+      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-gray-600">
+        <span>植付日: {format(parseISO(vegetable.plantedDate), 'yyyy年M月d日')}</span>
+        {harvestDate && !isCompleted && (
+          <span>収穫予定: {format(parseISO(harvestDate), 'yyyy年M月d日')}</span>
+        )}
+      </div>
 
       {nextEvent && !isCompleted && (
         <div className="flex items-center gap-2 mt-3 text-sm text-gray-600">
