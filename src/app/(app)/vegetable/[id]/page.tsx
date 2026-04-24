@@ -87,7 +87,7 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
   return (
     <div style={{ maxWidth: 720, margin: '0 auto' }}>
       {/* パンくず */}
-      <div className="text-[13px] text-gray-500 mb-4">
+      <div className="text-xs text-gray-500 mb-3">
         <Link href="/garden" className="text-green-600 hover:underline">
           マイ菜園
         </Link>
@@ -96,28 +96,28 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
       </div>
 
       {/* ヘッダーカード */}
-      <Card className="mb-5">
-        <div className="flex items-start justify-between mb-3">
+      <Card className="mb-4">
+        <div className="flex items-start justify-between mb-2">
           <h1 className="text-xl font-bold">{vegetable.name}</h1>
           <div className="flex gap-2">
             {isActive ? (
-              <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full bg-green-100 text-green-800">
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-green-100 text-green-800">
                 栽培中
               </span>
             ) : (
-              <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-600">
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-600">
                 終了済み
               </span>
             )}
             {vegetable.cultivationMethod && (
-              <span className="text-[12px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">
                 {vegetable.cultivationMethod}
               </span>
             )}
           </div>
         </div>
 
-        <div className="text-[13px] text-gray-500 mt-2">
+        <div className="text-xs text-gray-500 mt-1.5">
           <div className="flex flex-wrap gap-x-4 gap-y-0.5">
             <span>カテゴリ: {vegetable.category}</span>
             <span>植付: {format(parseISO(vegetable.plantedDate), 'M月d日')}</span>
@@ -129,7 +129,7 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
       </Card>
 
       {/* アクションボタン */}
-      <div className="flex flex-wrap gap-3 mb-5">
+      <div className="flex flex-wrap gap-3 mb-4">
         <div className="flex flex-col gap-1">
           <Button
             variant="primary"
@@ -153,8 +153,8 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
       </div>
 
       {/* タイムライン */}
-      <Card className="mb-5">
-        <h2 className="text-base font-bold mb-4">栽培スケジュール</h2>
+      <Card className="mb-4">
+        <h2 className="text-base font-bold mb-3">栽培スケジュール</h2>
         <EventTimeline
           events={vegEvents}
           onToggleComplete={toggleEventCompletion}
