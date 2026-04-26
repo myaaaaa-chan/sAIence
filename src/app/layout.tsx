@@ -3,10 +3,17 @@ import { ProgressBarProvider } from '@/components/providers/ProgressBarProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'sAIence',
-  description: '家庭菜園AIアシスタント',
+  title: {
+    default: 'sAIence | AIが支える家庭菜園アシスタント',
+    template: '%s | sAIence',
+  },
+  description: 'AI写真診断で植物の状態を即チェック、栽培スケジュールを自動生成。家庭菜園をもっと簡単・楽しく。',
   icons: {
     icon: '/app-icon.svg',
+  },
+  robots: {
+    index: false,
+    follow: false,
   },
 }
 
