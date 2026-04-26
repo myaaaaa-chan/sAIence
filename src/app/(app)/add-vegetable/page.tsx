@@ -152,7 +152,8 @@ export default function AddVegetablePage() {
                 value={vegetableName}
                 onChange={setVegetableName}
                 placeholder="例: トマト、なす、バジル…"
-                searchPlaceholder="野菜名で検索..."
+                searchPlaceholder="野菜名で検索または入力..."
+                allowCustomValue
               />
             </div>
 
