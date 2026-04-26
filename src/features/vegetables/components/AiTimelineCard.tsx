@@ -27,17 +27,17 @@ export function AiTimelineCard({ events, onConfirm, onCancel, isLoading }: AiTim
 
       <div className="max-h-80 overflow-y-auto space-y-3 mb-4">
         {events.map((event, index) => (
-          <div key={index} className="flex items-start gap-3 py-2 px-3 rounded-lg bg-gray-50">
+          <div key={index} className="flex items-start gap-3 py-2 px-3 rounded-lg bg-gray-50 dark:bg-gray-800">
             <EventTypeBadge type={event.type} className="mt-0.5 shrink-0" />
             <div className="min-w-0">
               <div className="flex items-center gap-2 text-sm">
-                <span className="text-gray-500">
+                <span className="text-gray-700 dark:text-gray-300">
                   {format(parseISO(event.date), 'M月d日')}
                 </span>
-                <span className="font-medium text-gray-900">{event.title}</span>
+                <span className="font-medium text-gray-900 dark:text-white">{event.title}</span>
               </div>
               {event.description && (
-                <p className="text-xs text-gray-500 mt-1">{event.description}</p>
+                <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">{event.description}</p>
               )}
             </div>
           </div>

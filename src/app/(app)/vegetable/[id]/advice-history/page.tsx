@@ -27,7 +27,7 @@ export default function AdviceHistoryPage({ params }: { params: Promise<{ id: st
   return (
     <div style={{ maxWidth: 680, margin: '0 auto' }}>
       {/* パンくず */}
-      <div className="text-[13px] text-gray-500 mb-4">
+      <div className="text-[13px] text-gray-700 dark:text-gray-300 mb-4">
         <Link href="/garden" className="text-green-600 hover:underline">
           マイ菜園
         </Link>
@@ -41,7 +41,7 @@ export default function AdviceHistoryPage({ params }: { params: Promise<{ id: st
 
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-[22px] font-extrabold">アドバイス履歴</h1>
-        <span className="text-[13px] text-gray-500">
+        <span className="text-[13px] text-gray-700 dark:text-gray-300">
           {vegetableName} | {visibleAdvices.length}件
         </span>
       </div>
@@ -51,7 +51,7 @@ export default function AdviceHistoryPage({ params }: { params: Promise<{ id: st
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="animate-pulse bg-gray-100 rounded-lg h-24"
+              className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-24"
             />
           ))}
         </div>
@@ -67,7 +67,7 @@ export default function AdviceHistoryPage({ params }: { params: Promise<{ id: st
 
       {!isLoading && visibleAdvices.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-gray-500 mb-4">まだアドバイスはありません</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">まだアドバイスはありません</p>
           <Link
             href={`/vegetable/${id}`}
             className="text-green-600 hover:underline text-sm"

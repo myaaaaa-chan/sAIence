@@ -97,7 +97,7 @@ export default function GardenPage() {
           className={`px-4 py-1 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
             activeTab === 'active'
               ? 'bg-green-600 text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
           }`}
         >
           栽培中
@@ -105,7 +105,7 @@ export default function GardenPage() {
             className={`ml-1.5 text-[11px] px-1.5 py-px rounded-full ${
               activeTab === 'active'
                 ? 'bg-green-500 text-white'
-                : 'bg-gray-200 text-gray-500'
+                : 'bg-gray-200 text-gray-700 dark:text-gray-300'
             }`}
           >
             {activeCount}
@@ -116,7 +116,7 @@ export default function GardenPage() {
           className={`px-4 py-1 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
             activeTab === 'completed'
               ? 'bg-green-600 text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200'
           }`}
         >
           終了済み
@@ -124,7 +124,7 @@ export default function GardenPage() {
             className={`ml-1.5 text-[11px] px-1.5 py-px rounded-full ${
               activeTab === 'completed'
                 ? 'bg-green-500 text-white'
-                : 'bg-gray-200 text-gray-500'
+                : 'bg-gray-200 text-gray-700 dark:text-gray-300'
             }`}
           >
             {completedCount}
@@ -137,7 +137,7 @@ export default function GardenPage() {
             setSortKey(key)
             localStorage.setItem('garden:sortKey', key)
           }}
-          className="ml-auto text-sm border border-gray-200 rounded-lg px-2.5 py-1 text-gray-600 bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="ml-auto text-sm border border-gray-300 dark:border-gray-600 rounded-lg px-2.5 py-1 text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
             <option key={key} value={key}>{SORT_LABELS[key]}</option>
@@ -151,7 +151,7 @@ export default function GardenPage() {
           {Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="animate-pulse bg-gray-100 rounded-lg h-28"
+              className="animate-pulse bg-gray-100 dark:bg-gray-700 rounded-lg h-28"
             />
           ))}
         </div>
@@ -175,7 +175,7 @@ export default function GardenPage() {
       {/* 0件 */}
       {!isLoading && filtered.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-gray-500 mb-4">まだ野菜が登録されていません</p>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">まだ野菜が登録されていません</p>
           <Link
             href="/add-vegetable"
             className="inline-flex items-center gap-1.5 bg-green-600 text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-green-700 transition-colors"

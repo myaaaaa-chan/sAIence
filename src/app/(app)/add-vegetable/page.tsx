@@ -50,7 +50,7 @@ export default function AddVegetablePage() {
   const isFormValid = vegetableName.trim() !== '' && plantedDate !== ''
 
   const selectClassName =
-    'block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-green-500 focus:outline-none'
+    'block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm focus:border-green-500 focus:outline-none'
 
   const handleGenerateSchedule = useCallback(async () => {
     setScheduleError(null)
@@ -213,7 +213,7 @@ export default function AddVegetablePage() {
                   <option key={r} value={r}>{r}</option>
                 ))}
               </select>
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-xs text-gray-700 dark:text-gray-300">
                 地域を選択するとより正確なスケジュールが生成されます
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function AddVegetablePage() {
           <CardBody className="flex flex-col items-center justify-center py-12 gap-3">
             <LoaderCircle size={36} className="animate-spin text-green-600" />
             <p className="text-[15px] font-semibold">AIがスケジュールを考えています…</p>
-            <p className="text-[13px] text-gray-500">
+            <p className="text-[13px] text-gray-700 dark:text-gray-300">
               {vegetableName}の栽培計画を生成中
             </p>
           </CardBody>
@@ -308,7 +308,7 @@ export default function AddVegetablePage() {
               <Check size={28} className="text-green-600" />
             </div>
             <p className="text-lg font-bold">登録完了!</p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               {vegetableName}の栽培スケジュールを登録しました
             </p>
             <div className="flex gap-3 mt-2">
@@ -339,14 +339,14 @@ function StepIndicator({ number, label, current }: { number: number; label: stri
             ? 'bg-green-600 text-white'
             : isActive
               ? 'bg-green-600 text-white'
-              : 'bg-gray-200 text-gray-500'
+              : 'bg-gray-200 text-gray-700 dark:text-gray-300'
         }`}
       >
         {isDone ? <Check size={14} /> : number}
       </div>
       <span
         className={`text-sm font-medium ${
-          isActive ? 'text-green-700' : isDone ? 'text-gray-500' : 'text-gray-400'
+          isActive ? 'text-green-700' : isDone ? 'text-gray-700 dark:text-gray-300' : 'text-gray-600 dark:text-gray-400'
         }`}
       >
         {label}

@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="bg-gray-50 min-h-screen">
+      <body className="bg-gray-50 dark:bg-gray-900 min-h-screen">
         <ProgressBarProvider>{children}</ProgressBarProvider>
       </body>
     </html>

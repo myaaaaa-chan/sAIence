@@ -5,7 +5,7 @@ const eventTypeConfig: Record<EventType, { label: string; className: string }> =
   pinching: { label: '摘心', className: 'bg-orange-100 text-orange-800' },
   harvesting: { label: '収穫', className: 'bg-red-100 text-red-800' },
   watering: { label: '水やり', className: 'bg-blue-100 text-blue-800' },
-  other: { label: 'その他', className: 'bg-gray-100 text-gray-700' },
+  other: { label: 'その他', className: 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300' },
 }
 
 const urgencyConfig: Record<Urgency, { label: string; className: string }> = {

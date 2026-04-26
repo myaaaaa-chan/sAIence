@@ -132,7 +132,7 @@ export function PhotoAdviceDialog({
       {/* idle: ファイル選択 */}
       {phase === 'idle' && (
         <div className="flex flex-col items-center gap-4">
-          <div className="flex flex-col items-center gap-2 py-8 text-gray-400">
+          <div className="flex flex-col items-center gap-2 py-8 text-gray-600 dark:text-gray-400">
             <Camera size={48} strokeWidth={1.5} />
             <span className="text-sm">写真を撮影して、AIにアドバイスをもらいましょう</span>
           </div>
@@ -158,14 +158,14 @@ export function PhotoAdviceDialog({
             />
           )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               AIへの質問（任意）
             </label>
             <textarea
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="例: 葉の色が薄くなってきた気がします…"
-              className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm min-h-[60px] resize-y focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full rounded-lg border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm min-h-[60px] resize-y focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             />
           </div>
           <div className="flex gap-2">
@@ -184,7 +184,7 @@ export function PhotoAdviceDialog({
         <div className="flex flex-col items-center gap-3 py-8">
           <LoaderCircle size={40} className="animate-spin text-green-600" />
           <div className="text-[15px] font-semibold">写真を解析中…</div>
-          <div className="text-[13px] text-gray-500">
+          <div className="text-[13px] text-gray-700 dark:text-gray-300">
             AIが{vegetableName}の状態を確認しています
           </div>
         </div>

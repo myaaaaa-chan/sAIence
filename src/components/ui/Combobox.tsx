@@ -105,17 +105,17 @@ export function Combobox({
       <button
         type="button"
         onClick={() => (isOpen ? close() : open())}
-        className="w-full border-[1.5px] border-gray-200 rounded-lg px-3 py-2.5 text-sm text-left bg-white cursor-pointer flex items-center justify-between focus:outline-none focus:border-emerald-900 focus:ring-[3px] focus:ring-emerald-900/8"
+        className="w-full border-[1.5px] border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2.5 text-sm text-left bg-white dark:bg-gray-900 cursor-pointer flex items-center justify-between focus:outline-none focus:border-emerald-900 focus:ring-[3px] focus:ring-emerald-900/8"
       >
-        <span className={selectedLabel ? 'text-gray-900' : 'text-gray-400'}>
+        <span className={selectedLabel ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400'}>
           {selectedLabel || placeholder}
         </span>
-        <ChevronDown size={16} className="text-gray-500 shrink-0" />
+        <ChevronDown size={16} className="text-gray-700 dark:text-gray-300 shrink-0" />
       </button>
 
       {isOpen && (
-        <div className="absolute top-[calc(100%+4px)] left-0 right-0 bg-white border-[1.5px] border-gray-200 rounded-[10px] shadow-[0_8px_24px_rgba(0,0,0,0.12)] z-50 max-h-60 overflow-y-auto">
-          <div className="p-2 border-b border-gray-100">
+        <div className="absolute top-[calc(100%+4px)] left-0 right-0 bg-white dark:bg-gray-900 border-[1.5px] border-gray-300 dark:border-gray-600 rounded-[10px] shadow-[0_8px_24px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_24px_rgba(0,0,0,0.5)] z-50 max-h-60 overflow-y-auto">
+          <div className="p-2 border-b border-gray-300 dark:border-gray-600">
             <input
               ref={inputRef}
               type="text"
@@ -126,12 +126,12 @@ export function Combobox({
               }}
               onKeyDown={handleKeyDown}
               placeholder={searchPlaceholder}
-              className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-emerald-900"
+              className="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-emerald-900"
             />
           </div>
           <div ref={listRef}>
             {filtered.length === 0 ? (
-              <div className="px-3.5 py-2.5 text-sm text-gray-400">
+              <div className="px-3.5 py-2.5 text-sm text-gray-600 dark:text-gray-400">
                 該当する項目がありません
               </div>
             ) : (
@@ -140,7 +140,7 @@ export function Combobox({
                   key={option.value}
                   data-combobox-item
                   onClick={() => select(option.value)}
-                  className={`px-3.5 py-2.5 cursor-pointer text-sm border-b border-gray-50 last:border-b-0 transition-colors ${
+                  className={`px-3.5 py-2.5 cursor-pointer text-sm border-b border-gray-50 dark:border-gray-700 last:border-b-0 transition-colors ${
                     i === highlightIndex
                       ? 'bg-green-50 text-emerald-900'
                       : option.value === value

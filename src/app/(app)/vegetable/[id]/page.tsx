@@ -71,7 +71,7 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
   if (!vegetable) {
     return (
       <div className="text-center py-16">
-        <p className="text-gray-500 mb-4">野菜が見つかりません</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">野菜が見つかりません</p>
         <Link
           href="/garden"
           className="text-green-600 hover:underline text-sm"
@@ -87,7 +87,7 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
   return (
     <div style={{ maxWidth: 720, margin: '0 auto' }}>
       {/* パンくず */}
-      <div className="text-xs text-gray-500 mb-3">
+      <div className="text-xs text-gray-700 dark:text-gray-300 mb-3">
         <Link href="/garden" className="text-green-600 hover:underline">
           マイ菜園
         </Link>
@@ -105,7 +105,7 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
                 栽培中
               </span>
             ) : (
-              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-600">
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
                 終了済み
               </span>
             )}
@@ -117,7 +117,7 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
           </div>
         </div>
 
-        <div className="text-xs text-gray-500 mt-1.5">
+        <div className="text-xs text-gray-700 dark:text-gray-300 mt-1.5">
           <div className="flex flex-wrap gap-x-4 gap-y-0.5">
             <span>カテゴリ: {vegetable.category}</span>
             <span>植付: {format(parseISO(vegetable.plantedDate), 'M月d日')}</span>
@@ -140,12 +140,12 @@ export default function VegetablePage({ params }: { params: Promise<{ id: string
             写真AIアドバイス
           </Button>
           {!canAdviceToday(id) && (
-            <p className="text-xs text-gray-500">本日のアドバイス上限に達しました</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">本日のアドバイス上限に達しました</p>
           )}
         </div>
         <Link
           href={`/vegetable/${id}/advice-history`}
-          className="inline-flex items-center gap-1.5 bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 px-4 py-2.5 rounded-lg font-semibold text-sm transition-colors"
+          className="inline-flex items-center gap-1.5 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-800 px-4 py-2.5 rounded-lg font-semibold text-sm transition-colors"
         >
           <Clock size={16} />
           アドバイス履歴

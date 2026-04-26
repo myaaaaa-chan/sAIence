@@ -17,10 +17,10 @@ const urgencyBorderColors: Record<Urgency, string> = {
 export function AdviceHistoryCard({ advice }: AdviceHistoryCardProps) {
   return (
     <div
-      className={`border-l-4 ${urgencyBorderColors[advice.urgency]} bg-white rounded-lg p-4 shadow-sm`}
+      className={`border-l-4 ${urgencyBorderColors[advice.urgency]} bg-white dark:bg-gray-900 rounded-lg p-4 shadow-sm`}
     >
       <div className="flex items-center gap-2 mb-2">
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-gray-700 dark:text-gray-300">
           {format(parseISO(advice.createdAt), 'yyyy年M月d日 HH:mm')}
         </span>
         <UrgencyBadge urgency={advice.urgency} />
@@ -35,12 +35,12 @@ export function AdviceHistoryCard({ advice }: AdviceHistoryCardProps) {
       )}
 
       {advice.userComment && (
-        <div className="mb-3 text-xs text-gray-500 bg-gray-50 rounded-md p-2">
+        <div className="mb-3 text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 rounded-md p-2">
           💬 {advice.userComment}
         </div>
       )}
 
-      <p className="text-sm leading-relaxed whitespace-pre-wrap text-gray-800">
+      <p className="text-sm leading-relaxed whitespace-pre-wrap text-gray-800 dark:text-gray-100">
         {advice.adviceText}
       </p>
     </div>

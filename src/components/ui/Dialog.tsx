@@ -37,7 +37,7 @@ export function Dialog({ open, onClose, title, children }: DialogProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-[18px] w-full max-w-[460px] max-h-[90vh] overflow-y-auto"
+        className="bg-white dark:bg-gray-900 rounded-[18px] w-full max-w-[460px] max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {title && (
@@ -45,7 +45,7 @@ export function Dialog({ open, onClose, title, children }: DialogProps) {
             <h2 className="text-[17px] font-bold">{title}</h2>
             <button
               onClick={onClose}
-              className="bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer text-gray-500 hover:bg-gray-200 transition-colors"
+              className="bg-gray-100 dark:bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer text-gray-700 dark:text-gray-300 hover:bg-gray-200 transition-colors"
             >
               <X size={16} />
             </button>

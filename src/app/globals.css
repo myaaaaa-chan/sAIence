@@ -2,6 +2,16 @@
 
 @layer base {
   html {
-    font-size: 17px;
+    font-size: 18px;
+  }
+  body {
+    color: #111827;
+    background-color: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      color: #f3f4f6;
+      background-color: #111827;
+    }
   }
 }

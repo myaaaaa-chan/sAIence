@@ -55,18 +55,18 @@ export function MonthCalendar({ selectedDate, onDateSelect, eventDates }: MonthC
         <button
           type="button"
           onClick={handlePrevMonth}
-          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors text-gray-500"
+          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300"
           aria-label="前月"
         >
           <ChevronLeft size={18} />
         </button>
-        <span className="text-[15px] font-bold text-gray-800">
+        <span className="text-[15px] font-bold text-gray-800 dark:text-gray-100">
           {format(currentMonth, 'yyyy年M月', { locale: ja })}
         </span>
         <button
           type="button"
           onClick={handleNextMonth}
-          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors text-gray-500"
+          className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300"
           aria-label="翌月"
         >
           <ChevronRight size={18} />
@@ -79,7 +79,7 @@ export function MonthCalendar({ selectedDate, onDateSelect, eventDates }: MonthC
           <div
             key={day}
             className={`text-center text-[11px] font-semibold pb-2 ${
-              i === 0 ? 'text-red-500' : i === 6 ? 'text-blue-500' : 'text-gray-400'
+              i === 0 ? 'text-red-500' : i === 6 ? 'text-blue-500' : 'text-gray-600 dark:text-gray-400'
             }`}
           >
             {day}
@@ -116,7 +116,7 @@ export function MonthCalendar({ selectedDate, onDateSelect, eventDates }: MonthC
                           ? 'text-red-500 hover:bg-red-50'
                           : dayOfWeek === 6
                             ? 'text-blue-500 hover:bg-blue-50'
-                            : 'text-gray-700 hover:bg-gray-100'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-gray-700'
                 }`}
               >
                 {format(day, 'd')}

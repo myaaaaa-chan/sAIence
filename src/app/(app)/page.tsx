@@ -25,7 +25,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1 className="text-xl font-bold text-gray-800 mb-5">家庭菜園カレンダー</h1>
+      <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-5">家庭菜園カレンダー</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-5">
         <MonthCalendar

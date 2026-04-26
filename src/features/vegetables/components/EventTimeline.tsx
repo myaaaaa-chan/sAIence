@@ -39,7 +39,7 @@ function groupEventsByDate(events: CultivationEvent[]): Map<string, CultivationE
 export function EventTimeline({ events, onToggleComplete, onDelete }: EventTimelineProps) {
   if (events.length === 0) {
     return (
-      <p className="text-sm text-gray-500 text-center py-8">
+      <p className="text-sm text-gray-700 dark:text-gray-300 text-center py-8">
         スケジュールがありません
       </p>
     )
@@ -51,44 +51,44 @@ export function EventTimeline({ events, onToggleComplete, onDelete }: EventTimel
     <div className="space-y-5">
       {Array.from(grouped.entries()).map(([dateKey, dateEvents]) => (
         <div key={dateKey}>
-          <h4 className="text-base font-semibold text-gray-600 mb-2">
+          <h4 className="text-base font-semibold text-gray-600 dark:text-gray-400 mb-2">
             {format(parseISO(dateKey), 'M月d日')}
           </h4>
 
           {/* 縦線 + イベントリスト */}
-          <div className="relative ml-2 border-l-2 border-gray-200 pl-5 space-y-2">
+          <div className="relative ml-2 border-l-2 border-gray-300 dark:border-gray-600 pl-5 space-y-2">
             {dateEvents.map((event) => (
               <div key={event.id} className="relative">
                 {/* タイプカラーのドット */}
                 <div
-                  className={`absolute -left-[1.4375rem] top-[0.6rem] w-3 h-3 rounded-full ring-2 ring-white ${DOT_COLOR[event.type]}`}
+                  className={`absolute -left-[1.4375rem] top-[0.6rem] w-3 h-3 rounded-full ring-2 ring-white dark:ring-gray-900 ${DOT_COLOR[event.type]}`}
                 />
 
-                <div className="flex items-start gap-3 py-1.5 px-2 rounded-lg hover:bg-gray-50">
+                <div className="flex items-start gap-3 py-1.5 px-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-800">
                   <input
                     type="checkbox"
                     checked={event.isCompleted}
                     onChange={() => onToggleComplete(event.id)}
-                    className="w-4 h-4 rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer mt-0.5 shrink-0"
+                    className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-green-600 focus:ring-green-500 cursor-pointer mt-0.5 shrink-0"
                   />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <EventTypeBadge type={event.type} />
                       <span
                         className={`text-base ${
-                          event.isCompleted ? 'line-through text-gray-400' : 'text-gray-900'
+                          event.isCompleted ? 'line-through text-gray-600 dark:text-gray-400' : 'text-gray-900 dark:text-white'
                         }`}
                       >
                         {event.title}
                       </span>
                     </div>
                     {event.description && (
-                      <p className="text-sm text-gray-500 mt-0.5 ml-0.5">{event.description}</p>
+                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5 ml-0.5">{event.description}</p>
                     )}
                   </div>
                   <button
                     onClick={() => onDelete(event.id)}
-                    className="p-1 text-gray-400 hover:text-red-500 transition-colors cursor-pointer mt-0.5 shrink-0"
+                    className="p-1 text-gray-600 dark:text-gray-400 hover:text-red-500 transition-colors cursor-pointer mt-0.5 shrink-0"
                     aria-label="削除"
                   >
                     <Trash2 size={16} />

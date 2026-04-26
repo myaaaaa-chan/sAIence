@@ -11,7 +11,7 @@ export default function SettingsPage() {
   const { region, cultivationMethod, setRegion, setCultivationMethod } = useSettingsStore()
 
   const selectClassName =
-    'block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-green-500 focus:outline-none'
+    'block w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm focus:border-green-500 focus:outline-none'
 
   return (
     <div className="mx-auto max-w-[560px] px-4 py-6">
@@ -19,7 +19,7 @@ export default function SettingsPage() {
 
       <Card className="mb-5">
         <CardHeader>
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-300">
             栽培設定
           </h2>
         </CardHeader>
@@ -40,7 +40,7 @@ export default function SettingsPage() {
                 </option>
               ))}
             </select>
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-gray-700 dark:text-gray-300">
               野菜追加時のデフォルト地域として使用されます
             </p>
           </div>

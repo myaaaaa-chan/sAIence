@@ -37,12 +37,12 @@ export function DayEvents({ date, events, onEventClick }: DayEventsProps) {
       {/* ヘッダー */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <div className="text-lg font-bold text-gray-800">
+          <div className="text-lg font-bold text-gray-800 dark:text-gray-100">
             {dateTitle}
-            <span className="text-gray-500 font-normal">({dayOfWeek})</span>
+            <span className="text-gray-700 dark:text-gray-300 font-normal">({dayOfWeek})</span>
           </div>
           {dateLabel && (
-            <div className="text-xs text-gray-500">{dateLabel}</div>
+            <div className="text-xs text-gray-700 dark:text-gray-300">{dateLabel}</div>
           )}
         </div>
         {events.length > 0 && (
@@ -54,7 +54,7 @@ export function DayEvents({ date, events, onEventClick }: DayEventsProps) {
 
       {/* イベントリスト */}
       {events.length === 0 ? (
-        <p className="text-sm text-gray-400 text-center py-6">
+        <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-6">
           この日はイベントがありません
         </p>
       ) : (
@@ -64,7 +64,7 @@ export function DayEvents({ date, events, onEventClick }: DayEventsProps) {
               key={event.id}
               type="button"
               onClick={() => onEventClick?.(event)}
-              className={`flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:bg-gray-50 transition-colors text-left ${
+              className={`flex items-center gap-3 p-3 rounded-xl border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-800 transition-colors text-left ${
                 event.isCompleted ? 'opacity-50' : ''
               }`}
             >
@@ -78,12 +78,12 @@ export function DayEvents({ date, events, onEventClick }: DayEventsProps) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-0.5">
                   <EventTypeBadge type={event.type} />
-                  <span className="text-sm font-medium text-gray-800 truncate">
+                  <span className="text-sm font-medium text-gray-800 dark:text-gray-100 truncate">
                     {event.title}
                   </span>
                 </div>
                 {event.description && (
-                  <p className="text-xs text-gray-500 truncate">{event.description}</p>
+                  <p className="text-xs text-gray-700 dark:text-gray-300 truncate">{event.description}</p>
                 )}
               </div>
 
@@ -92,7 +92,7 @@ export function DayEvents({ date, events, onEventClick }: DayEventsProps) {
                 className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 text-xs ${
                   event.isCompleted
                     ? 'border-green-500 bg-green-500 text-white'
-                    : 'border-gray-300'
+                    : 'border-gray-300 dark:border-gray-600'
                 }`}
               >
                 {event.isCompleted && '✓'}
