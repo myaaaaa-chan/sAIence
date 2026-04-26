@@ -24,20 +24,11 @@ export const metadata: Metadata = {
     siteName: 'sAIence',
     title,
     description,
-    images: [
-      {
-        url: `${APP_URL}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'sAIence - AIが支える家庭菜園アシスタント',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title,
     description,
-    images: [`${APP_URL}/og-image.png`],
   },
 }
 
