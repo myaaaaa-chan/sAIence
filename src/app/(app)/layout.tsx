@@ -1,5 +1,10 @@
+import type { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { StoreProvider } from '@/components/providers/StoreProvider'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 export default function AppLayout({
   children,
