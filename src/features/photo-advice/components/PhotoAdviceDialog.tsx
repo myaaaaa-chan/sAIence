@@ -21,9 +21,9 @@ interface PhotoAdviceDialogProps {
 }
 
 const urgencyBgColors: Record<Urgency, string> = {
-  normal: 'bg-green-50',
-  attention: 'bg-orange-50',
-  urgent: 'bg-red-50',
+  normal: 'bg-green-50 dark:bg-green-950',
+  attention: 'bg-orange-50 dark:bg-orange-950',
+  urgent: 'bg-red-50 dark:bg-red-950',
 }
 
 export function PhotoAdviceDialog({
@@ -197,17 +197,17 @@ export function PhotoAdviceDialog({
             <div className="mb-2">
               <UrgencyBadge urgency={result.urgency} />
             </div>
-            <p className="text-sm leading-relaxed whitespace-pre-wrap">
+            <p className="text-sm leading-relaxed whitespace-pre-wrap text-gray-800 dark:text-gray-100">
               {result.advice}
             </p>
           </div>
 
           {result.actions.length > 0 && (
-            <div className="bg-amber-50 rounded-xl p-4">
-              <div className="text-[13px] font-bold text-amber-800 mb-2">
+            <div className="bg-amber-50 dark:bg-amber-950 rounded-xl p-4">
+              <div className="text-[13px] font-bold text-amber-800 dark:text-amber-200 mb-2">
                 推奨アクション
               </div>
-              <ul className="text-[13px] text-amber-900 pl-4 list-disc leading-loose">
+              <ul className="text-[13px] text-amber-900 dark:text-amber-100 pl-4 list-disc leading-loose">
                 {result.actions.map((action, i) => (
                   <li key={i}>{action}</li>
                 ))}
